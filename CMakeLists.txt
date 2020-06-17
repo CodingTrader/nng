@@ -327,7 +327,7 @@ else ()
     # libatomic map file.
     #
     # Arguably when using clang, compiler-rt might be better.
-    nng_check_lib(__atomic_load_1 atomic NNG_HAVE_LIBATOMIC)
+    nng_check_lib(atomic __atomic_load_1 NNG_HAVE_LIBATOMIC)
 
     nng_check_sym(AF_UNIX sys/socket.h NNG_HAVE_UNIX_SOCKETS)
     nng_check_sym(backtrace_symbols_fd execinfo.h NNG_HAVE_BACKTRACE)
@@ -341,6 +341,7 @@ else ()
     nng_check_sym(SO_PEERCRED sys/socket.h NNG_HAVE_SOPEERCRED)
     nng_check_struct_member(sockpeercred uid sys/socket.h NNG_HAVE_SOCKPEERCRED)
     nng_check_sym(LOCAL_PEERCRED sys/un.h NNG_HAVE_LOCALPEERCRED)
+    nng_check_sym(LOCAL_PEERPID sys/un.h NNG_HAVE_LOCALPEERPID)
     nng_check_sym(getpeerucred ucred.h NNG_HAVE_GETPEERUCRED)
     nng_check_sym(atomic_flag_test_and_set stdatomic.h NNG_HAVE_STDATOMIC)
 
